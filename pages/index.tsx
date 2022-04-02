@@ -39,17 +39,7 @@ const Home: NextPage<{ heroes: Hero[] }> = ({ heroes }: { heroes: Hero[] }) => {
   );
 };
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const res = await axios.get(`http://localhost:3000/api/hero`);
-//   const { heroes }: { heroes: Hero[] } = res.data;
-//   return {
-//     props: {
-//       heroes: heroes,
-//     },
-//   };
-// };
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await axios.get(`http://localhost:3000/api/hero`);
   const { heroes }: { heroes: Hero[] } = res.data;
   return {
@@ -58,6 +48,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
+
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   const res = await axios.get(`http://localhost:3000/api/hero`);
+//   const { heroes }: { heroes: Hero[] } = res.data;
+//   return {
+//     props: {
+//       heroes: heroes,
+//     },
+//   };
+// };
 
 export default Home;
 
