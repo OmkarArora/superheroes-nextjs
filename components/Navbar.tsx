@@ -7,7 +7,7 @@ function Navbar() {
       <Link href="/">
         <a className="navbar-brand">Superhero identity</a>
       </Link>
-      <Link href="/new">
+      <Link href="/addhero">
         <MDBBtn>New identity</MDBBtn>
       </Link>
     </nav>
