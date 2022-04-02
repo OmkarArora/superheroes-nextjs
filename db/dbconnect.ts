@@ -8,7 +8,7 @@ const connection: Connection = {};
 
 async function dbConnect() {
   let mongoURI: string | undefined = process.env.MONGO_URI;
-  console.log("URI", mongoURI);
+
   if (connection.isConnected) {
     return;
   }
