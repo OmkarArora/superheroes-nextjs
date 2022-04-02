@@ -25,7 +25,7 @@ function EditHero({ hero }: { hero: Hero }) {
   const handleForm = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios(`http://localhost:3000/api/hero/${heroId}`, {
+      await axios(`${process.env.NEXT_PUBLIC_URL}/api/hero/${heroId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -73,7 +73,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       },
     };
   }
-  const res = await axios.get(`http://localhost:3000/api/hero/${id}`);
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/hero/${id}`);
   const { hero }: { hero: Hero } = res.data;
   return {
     props: {

@@ -12,6 +12,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
   switch (method) {
     case "GET":
+      console.log("GET REQUEST");
       try {
         const heroes = await Hero.find({});
         res.status(200).json({ success: true, heroes });

@@ -22,7 +22,7 @@ function AddHero() {
   const handleForm = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios("http://localhost:3000/api/hero", {
+      const res = await axios(`${process.env.NEXT_PUBLIC_URL}/api/hero`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

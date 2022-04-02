@@ -12,6 +12,7 @@ import Link from "next/link";
 const axios = require("axios").default;
 
 const Home: NextPage<{ heroes: Hero[] }> = ({ heroes }: { heroes: Hero[] }) => {
+  console.log(process.env.NEXT_PUBLIC_URL);
   return (
     <div className="container">
       <h1 className="display-2">Superhero Identity Manager</h1>
@@ -40,7 +41,7 @@ const Home: NextPage<{ heroes: Hero[] }> = ({ heroes }: { heroes: Hero[] }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await axios(`http://localhost:3000/api/hero`);
+  const res = await axios(`${process.env.NEXT_PUBLIC_URL}/api/hero`);
   const { heroes }: { heroes: Hero[] } = res.data;
   return {
     props: {
